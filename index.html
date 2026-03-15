@@ -2,267 +2,162 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cameron Adams — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ┌─────────────────────────────────────────────────────┐
+       │  PAGE TITLE — shown in browser tab                  │
+       └─────────────────────────────────────────────────────┘ -->
+  <title>Nocturne — Ambient Player</title>
+
+  <!-- Google Fonts — swap these URLs to change the fonts
+       Current fonts: Playfair Display (headings) + DM Mono (body)
+       Find alternatives at: https://fonts.google.com           -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+  <!-- Background: animated star canvas (drawn by JS) -->
+  <canvas id="starfield"></canvas>
 
-  <nav>
-    <a href="#" class="nav-logo">CA — Portfolio</a>
-    <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- Background: three soft glowing colour blobs -->
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-lines">
-      <span class="vl"></span>
-      <span class="vl"></span>
-      <span class="hl"></span>
-      <span class="hl"></span>
+  <!-- ═══════════════════════════════════════════════════════
+       MAIN CONTENT
+       ═══════════════════════════════════════════════════════ -->
+  <main class="stage">
+
+    <!-- ┌──────────────────────────────────────────────────┐
+         │  TAGLINE — small italic text above the image     │
+         │  Edit the text between the tags to change it     │
+         └──────────────────────────────────────────────────┘ -->
+    <div class="page-title">ambient · generative</div>
+
+    <!-- ┌──────────────────────────────────────────────────┐
+         │  FLOATING IMAGE                                   │
+         │  • To swap in a real photo/image, replace the    │
+         │    <svg>...</svg> block with:                     │
+         │    <img src="your-image.jpg" alt="description">  │
+         │  • Size is controlled by .image-frame in CSS     │
+         │  • Float speed: hoverFloat in CSS                │
+         └──────────────────────────────────────────────────┘ -->
+    <div class="float-wrap" id="floater" onclick="handleImageClick()" title="Click to play">
+      <div class="image-ring" id="imageRing"></div>
+      <div class="image-frame">
+        <!-- SVG illustration — replace this entire <svg> block
+             with <img src="photo.jpg" alt="..."> if you prefer a photo -->
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="skyGrad" cx="50%" cy="35%" r="65%">
+              <stop offset="0%" stop-color="#1b1040"/>
+              <stop offset="100%" stop-color="#070e1c"/>
+            </radialGradient>
+            <radialGradient id="moonGrad" cx="38%" cy="38%" r="52%">
+              <stop offset="0%" stop-color="#f7edca"/>
+              <stop offset="60%" stop-color="#d4b870"/>
+              <stop offset="100%" stop-color="#b8954a"/>
+            </radialGradient>
+            <radialGradient id="waterGrad" cx="50%" cy="0%" r="100%">
+              <stop offset="0%" stop-color="#101e32"/>
+              <stop offset="100%" stop-color="#060d18"/>
+            </radialGradient>
+          </defs>
+          <circle cx="100" cy="100" r="100" fill="url(#skyGrad)"/>
+          <circle cx="28"  cy="22"  r="0.9" fill="#fff" opacity="0.85"/>
+          <circle cx="52"  cy="14"  r="0.6" fill="#fff" opacity="0.6"/>
+          <circle cx="75"  cy="28"  r="1.1" fill="#fff" opacity="0.7"/>
+          <circle cx="93"  cy="18"  r="0.7" fill="#fff" opacity="0.5"/>
+          <circle cx="118" cy="12"  r="0.9" fill="#fff" opacity="0.8"/>
+          <circle cx="138" cy="30"  r="0.6" fill="#fff" opacity="0.55"/>
+          <circle cx="162" cy="18"  r="1.0" fill="#fff" opacity="0.75"/>
+          <circle cx="178" cy="44"  r="0.7" fill="#fff" opacity="0.6"/>
+          <circle cx="42"  cy="48"  r="0.5" fill="#fff" opacity="0.4"/>
+          <circle cx="170" cy="68"  r="0.8" fill="#fff" opacity="0.7"/>
+          <circle cx="22"  cy="68"  r="0.7" fill="#fff" opacity="0.5"/>
+          <circle cx="185" cy="85"  r="0.5" fill="#fff" opacity="0.45"/>
+          <circle cx="108" cy="38"  r="0.6" fill="#fff" opacity="0.5"/>
+          <circle cx="62"  cy="62"  r="0.5" fill="#fff" opacity="0.4"/>
+          <circle cx="144" cy="52"  r="24"  fill="url(#moonGrad)" opacity="0.95"/>
+          <circle cx="152" cy="44"  r="24"  fill="#0e1020" opacity="0.88"/>
+          <circle cx="132" cy="56"  r="2.5" fill="rgba(0,0,0,0.08)"/>
+          <circle cx="138" cy="64"  r="1.5" fill="rgba(0,0,0,0.06)"/>
+          <polygon points="-2,145 30,95 60,130 95,75 130,110 165,55 200,100 200,200 -2,200" fill="#0b192c"/>
+          <polygon points="-2,165 20,120 55,145 90,100 125,130 160,80 195,118 200,200 -2,200" fill="#0d1f35"/>
+          <polygon points="-2,185 0,160 35,140 70,165 100,145 135,170 165,148 200,168 200,200 -2,200" fill="#091525"/>
+          <polygon points="12,175 17,155 22,175"   fill="#060f1a"/>
+          <polygon points="22,178 28,156 34,178"   fill="#060f1a"/>
+          <polygon points="35,180 41,160 47,180"   fill="#060f1a"/>
+          <polygon points="150,172 156,152 162,172" fill="#060f1a"/>
+          <polygon points="162,176 168,155 174,176" fill="#060f1a"/>
+          <polygon points="173,179 180,157 187,179" fill="#060f1a"/>
+          <rect x="-2" y="162" width="204" height="40" fill="url(#waterGrad)"/>
+          <line x1="10"  y1="170" x2="55"  y2="170" stroke="#d4b870" stroke-width="0.6" opacity="0.12"/>
+          <line x1="70"  y1="173" x2="130" y2="173" stroke="#d4b870" stroke-width="0.5" opacity="0.1"/>
+          <line x1="15"  y1="178" x2="50"  y2="178" stroke="#d4b870" stroke-width="0.4" opacity="0.08"/>
+          <line x1="140" y1="167" x2="190" y2="167" stroke="#d4b870" stroke-width="0.6" opacity="0.12"/>
+          <line x1="100" y1="180" x2="160" y2="180" stroke="#d4b870" stroke-width="0.4" opacity="0.08"/>
+          <ellipse cx="144" cy="178" rx="9" ry="3.5" fill="#d4b870" opacity="0.18"/>
+          <ellipse cx="144" cy="183" rx="5" ry="2"   fill="#d4b870" opacity="0.1"/>
+          <text x="100" y="142" text-anchor="middle" font-size="28" fill="rgba(255,255,255,0.07)" font-family="serif">♫</text>
+        </svg>
+      </div>
+      <!-- Hint text below the image -->
+      <div class="tap-hint" id="tapHint">click to play</div>
     </div>
 
-    <div class="hero-type-wrapper">
-      <div id="type-display">
-        <span class="type-char" id="c0">C</span>
-        <span class="type-char" id="c1">A</span>
-        <span class="type-char" id="c2">M</span>
-        <span class="type-char" id="c3">A</span>
-        <span class="type-char" id="c4">D</span>
-      </div>
-      <div id="full-name">
-        <span class="name-first">Cameron</span>
-        <span class="name-last">Adams</span>
-        <p class="hero-sub">Designer &amp; Developer</p>
-      </div>
-    </div>
+    <!-- ┌──────────────────────────────────────────────────┐
+         │  MUSIC PLAYER PANEL                              │
+         │  Hidden by default; revealed on first click      │
+         └──────────────────────────────────────────────────┘ -->
+    <div class="music-panel" id="musicPanel">
 
-    <div class="scroll-cue">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- WORK -->
-  <section id="work">
-    <div class="section-label">Selected Work</div>
-    <div class="work-grid">
-
-      <div class="work-item" data-num="01">
-        <div class="work-bg work-bg-1">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 400 300" preserveAspectRatio="none">
-            <circle cx="200" cy="150" r="80" fill="none" stroke="#8fb3a0" stroke-width="0.5" opacity="0.3"/>
-            <circle cx="200" cy="150" r="120" fill="none" stroke="#8fb3a0" stroke-width="0.5" opacity="0.15"/>
-            <line x1="80" y1="150" x2="320" y2="150" stroke="#8fb3a0" stroke-width="0.5" opacity="0.2"/>
-            <line x1="200" y1="40" x2="200" y2="260" stroke="#8fb3a0" stroke-width="0.5" opacity="0.2"/>
-          </svg>
-        </div>
-        <div class="work-item-inner">
-          <div class="work-title">Brand Identity</div>
-          <div class="work-tags">Branding — 2024</div>
-        </div>
+      <!-- Track title & subtitle (updated by JS from the tracks array) -->
+      <div class="track-info">
+        <div class="track-name" id="trackName">Nocturne in C minor</div>
+        <div class="track-meta" id="trackMeta">generative · ambient · ∞</div>
       </div>
 
-      <div class="work-item" data-num="02">
-        <div class="work-bg work-bg-2">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 400 300">
-            <rect x="80" y="60" width="240" height="180" fill="none" stroke="#c4614a" stroke-width="0.5" opacity="0.3"/>
-            <rect x="110" y="90" width="180" height="120" fill="none" stroke="#c4614a" stroke-width="0.5" opacity="0.2"/>
-            <rect x="140" y="120" width="120" height="60" fill="#c4614a" opacity="0.08"/>
-          </svg>
+      <!-- Animated waveform bars (generated by JS) -->
+      <div class="waveform" id="waveform"></div>
+
+      <!-- Progress bar row -->
+      <div class="progress-row">
+        <span class="time-label" id="elapsed">0:00</span>
+        <div class="progress-track" id="progressTrack">
+          <div class="progress-fill" id="progressFill"></div>
         </div>
-        <div class="work-item-inner">
-          <div class="work-title">Web Application</div>
-          <div class="work-tags">Development — 2024</div>
-        </div>
+        <span class="time-label right">∞</span>
       </div>
 
-      <div class="work-item" data-num="03">
-        <div class="work-bg work-bg-3">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 400 300">
-            <polygon points="200,40 340,240 60,240" fill="none" stroke="#c8a96e" stroke-width="0.5" opacity="0.3"/>
-            <polygon points="200,80 300,220 100,220" fill="none" stroke="#c8a96e" stroke-width="0.5" opacity="0.2"/>
-            <polygon points="200,120 260,200 140,200" fill="#c8a96e" opacity="0.06"/>
-          </svg>
-        </div>
-        <div class="work-item-inner">
-          <div class="work-title">Motion Design</div>
-          <div class="work-tags">Animation — 2023</div>
-        </div>
+      <!-- Playback controls -->
+      <div class="controls">
+        <button class="ctrl" onclick="prevTrack()" title="Previous">&#9664;&#9664;</button>
+        <button class="ctrl play-ctrl" id="playBtn" onclick="togglePlay()" title="Play / Pause">&#9654;</button>
+        <button class="ctrl" onclick="nextTrack()" title="Next">&#9654;&#9654;</button>
       </div>
 
-      <div class="work-item" data-num="04">
-        <div class="work-bg work-bg-4">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 400 300">
-            <line x1="0" y1="0" x2="400" y2="300" stroke="#c8a96e" stroke-width="0.5" opacity="0.2"/>
-            <line x1="400" y1="0" x2="0" y2="300" stroke="#c8a96e" stroke-width="0.5" opacity="0.2"/>
-            <line x1="0" y1="150" x2="400" y2="150" stroke="#c8a96e" stroke-width="0.5" opacity="0.15"/>
-            <circle cx="200" cy="150" r="40" fill="#c8a96e" opacity="0.07"/>
-          </svg>
-        </div>
-        <div class="work-item-inner">
-          <div class="work-title">UI / UX Design</div>
-          <div class="work-tags">Product — 2023</div>
-        </div>
+      <!-- Volume slider -->
+      <div class="vol-row">
+        <span class="vol-icon">&#128264;</span>
+        <input type="range" id="volSlider" min="0" max="100" value="70" oninput="setVolume(this.value)" />
+        <span id="volLabel">70</span>
       </div>
 
-      <div class="work-item" data-num="05">
-        <div class="work-bg work-bg-5">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 400 300">
-            <rect x="40" y="40" width="60" height="60" fill="#8fb3a0" opacity="0.1"/>
-            <rect x="170" y="120" width="60" height="60" fill="#8fb3a0" opacity="0.1"/>
-            <rect x="300" y="200" width="60" height="60" fill="#8fb3a0" opacity="0.1"/>
-            <rect x="300" y="40" width="60" height="60" fill="#8fb3a0" opacity="0.06"/>
-            <rect x="40" y="200" width="60" height="60" fill="#8fb3a0" opacity="0.06"/>
-          </svg>
-        </div>
-        <div class="work-item-inner">
-          <div class="work-title">Photography</div>
-          <div class="work-tags">Art Direction — 2023</div>
-        </div>
-      </div>
-
-      <div class="work-item" data-num="06">
-        <div class="work-bg work-bg-6">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 400 300">
-            <path d="M 0 150 Q 100 50 200 150 Q 300 250 400 150" fill="none" stroke="#c4614a" stroke-width="0.5" opacity="0.4"/>
-            <path d="M 0 150 Q 100 80 200 150 Q 300 220 400 150" fill="none" stroke="#c4614a" stroke-width="0.5" opacity="0.2"/>
-          </svg>
-        </div>
-        <div class="work-item-inner">
-          <div class="work-title">Digital Experience</div>
-          <div class="work-tags">Interactive — 2022</div>
-        </div>
-      </div>
+      <!-- Track selector dots (generated by JS from the tracks array) -->
+      <div class="track-dots" id="trackDots"></div>
 
     </div>
-  </section>
+  </main>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-text">
-      <h2>Crafting experiences that <em>resonate.</em></h2>
-      <p>Placeholder — This is where a short bio would live. A couple of sentences about Cameron's background, what drives their work, and their approach to design and development.</p>
-      <p>Placeholder — Perhaps a line about the kinds of clients or projects they love working on, and what makes their work distinctive.</p>
-    </div>
-    <div class="about-stats">
-      <div class="stat-box">
-        <div class="stat-num">6+</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">40+</div>
-        <div class="stat-label">Projects Shipped</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">18</div>
-        <div class="stat-label">Clients Worldwide</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Cups of Coffee</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-label">Capabilities</div>
-    <div class="skills-list">
-      <div class="skill-pill">UI Design</div>
-      <div class="skill-pill">UX Research</div>
-      <div class="skill-pill">React</div>
-      <div class="skill-pill">TypeScript</div>
-      <div class="skill-pill">Node.js</div>
-      <div class="skill-pill">Figma</div>
-      <div class="skill-pill">Motion Design</div>
-      <div class="skill-pill">Brand Identity</div>
-      <div class="skill-pill">Design Systems</div>
-      <div class="skill-pill">Interaction Design</div>
-      <div class="skill-pill">Web Animation</div>
-      <div class="skill-pill">Art Direction</div>
-      <div class="skill-pill">Photography</div>
-      <div class="skill-pill">Three.js</div>
-      <div class="skill-pill">GSAP</div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Let's make something <span>great.</span></h2>
-    <p>Placeholder — A brief, inviting line about getting in touch. Whether it's a project, a question, or just saying hello.</p>
-    <a href="mailto:hello@cameronadams.com" class="cta-btn">Say Hello</a>
-  </section>
-
-  <footer>
-    <span>© 2024 Cameron Adams</span>
-    <span>Designed &amp; Built by CA</span>
-  </footer>
-
-  <script>
-    // Cursor
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursorRing');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    (function animateCursor() {
-      cursor.style.left = mx + 'px';
-      cursor.style.top = my + 'px';
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
-      requestAnimationFrame(animateCursor);
-    })();
-
-    // TYPEWRITER ANIMATION SEQUENCE
-    const chars = ['c0','c1','c2','c3','c4'];
-    const typeDisplay = document.getElementById('type-display');
-    const fullName = document.getElementById('full-name');
-
-    const TYPE_INTERVAL = 120;
-    const HOLD_AFTER_TYPE = 800;
-    const FADE_STAGGER = 60;
-    const FADE_DURATION = 600;
-    const NAME_DELAY = 200;
-
-    function typeLetters() {
-      let i = 0;
-      const interval = setInterval(() => {
-        const el = document.getElementById(chars[i]);
-        el.classList.add('visible');
-        i++;
-        if (i >= chars.length) {
-          clearInterval(interval);
-          setTimeout(fadeOut, HOLD_AFTER_TYPE);
-        }
-      }, TYPE_INTERVAL);
-    }
-
-    function fadeOut() {
-      chars.forEach((id, i) => {
-        setTimeout(() => {
-          document.getElementById(id).classList.add('fading');
-        }, i * FADE_STAGGER);
-      });
-      const totalFadeTime = chars.length * FADE_STAGGER + FADE_DURATION;
-      setTimeout(() => {
-        typeDisplay.style.display = 'none';
-        fullName.classList.add('visible');
-      }, totalFadeTime + NAME_DELAY);
-    }
-
-    setTimeout(typeLetters, 600);
-  </script>
+  <!-- External scripts — must come after the HTML body -->
+  <script src="player.js"></script>
 
 </body>
 </html>
