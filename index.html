@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cameron Adams — Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Orbitron:wght@400;600;700;900&family=Syne:wght@300;400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -55,15 +55,19 @@
   <!-- WORK -->
   <section id="work">
     <div class="section-label">Selected Work</div>
-    <div class="work-grid">
+    <div class="work-grid" id="workGrid">
 
-      <div class="work-item" data-num="01">
+      <div class="work-item" data-num="01"
+        data-title="Brand Identity"
+        data-tag="Branding — 2024"
+        data-desc="A full visual identity system for a fintech startup — logomark, type hierarchy, colour system, and a component library built for scale across digital and print touchpoints."
+        data-bg="work-bg-1">
         <div class="work-bg work-bg-1">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 400 300" preserveAspectRatio="none">
-            <circle cx="200" cy="150" r="80" fill="none" stroke="#8fb3a0" stroke-width="0.5" opacity="0.3"/>
-            <circle cx="200" cy="150" r="120" fill="none" stroke="#8fb3a0" stroke-width="0.5" opacity="0.15"/>
-            <line x1="80" y1="150" x2="320" y2="150" stroke="#8fb3a0" stroke-width="0.5" opacity="0.2"/>
-            <line x1="200" y1="40" x2="200" y2="260" stroke="#8fb3a0" stroke-width="0.5" opacity="0.2"/>
+          <svg viewBox="0 0 400 300" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%">
+            <circle cx="200" cy="150" r="80" fill="none" stroke="#0099cc" stroke-width="0.5" opacity="0.25"/>
+            <circle cx="200" cy="150" r="120" fill="none" stroke="#0099cc" stroke-width="0.5" opacity="0.12"/>
+            <line x1="80" y1="150" x2="320" y2="150" stroke="#0099cc" stroke-width="0.5" opacity="0.15"/>
+            <line x1="200" y1="40" x2="200" y2="260" stroke="#0099cc" stroke-width="0.5" opacity="0.15"/>
           </svg>
         </div>
         <div class="work-item-inner">
@@ -72,12 +76,16 @@
         </div>
       </div>
 
-      <div class="work-item" data-num="02">
+      <div class="work-item" data-num="02"
+        data-title="Web Application"
+        data-tag="Development — 2024"
+        data-desc="A React-based SaaS dashboard with real-time data visualisation, role-based access controls, and a design system that reduced dev handoff time by 40%."
+        data-bg="work-bg-2">
         <div class="work-bg work-bg-2">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 400 300">
-            <rect x="80" y="60" width="240" height="180" fill="none" stroke="#c4614a" stroke-width="0.5" opacity="0.3"/>
-            <rect x="110" y="90" width="180" height="120" fill="none" stroke="#c4614a" stroke-width="0.5" opacity="0.2"/>
-            <rect x="140" y="120" width="120" height="60" fill="#c4614a" opacity="0.08"/>
+          <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%">
+            <rect x="80" y="60" width="240" height="180" fill="none" stroke="#5a18cc" stroke-width="0.5" opacity="0.3"/>
+            <rect x="110" y="90" width="180" height="120" fill="none" stroke="#5a18cc" stroke-width="0.5" opacity="0.2"/>
+            <rect x="140" y="120" width="120" height="60" fill="#5a18cc" opacity="0.06"/>
           </svg>
         </div>
         <div class="work-item-inner">
@@ -86,12 +94,16 @@
         </div>
       </div>
 
-      <div class="work-item" data-num="03">
+      <div class="work-item" data-num="03"
+        data-title="Motion Design"
+        data-tag="Animation — 2023"
+        data-desc="Title sequences and UI motion language for a documentary series — blending generative geometry with hand-crafted timing to create a cohesive visual signature."
+        data-bg="work-bg-3">
         <div class="work-bg work-bg-3">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 400 300">
-            <polygon points="200,40 340,240 60,240" fill="none" stroke="#c8a96e" stroke-width="0.5" opacity="0.3"/>
-            <polygon points="200,80 300,220 100,220" fill="none" stroke="#c8a96e" stroke-width="0.5" opacity="0.2"/>
-            <polygon points="200,120 260,200 140,200" fill="#c8a96e" opacity="0.06"/>
+          <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%">
+            <polygon points="200,40 340,240 60,240" fill="none" stroke="#0099cc" stroke-width="0.5" opacity="0.25"/>
+            <polygon points="200,80 300,220 100,220" fill="none" stroke="#0099cc" stroke-width="0.5" opacity="0.15"/>
+            <polygon points="200,120 260,200 140,200" fill="#0099cc" opacity="0.04"/>
           </svg>
         </div>
         <div class="work-item-inner">
@@ -100,13 +112,17 @@
         </div>
       </div>
 
-      <div class="work-item" data-num="04">
+      <div class="work-item" data-num="04"
+        data-title="UI / UX Design"
+        data-tag="Product — 2023"
+        data-desc="End-to-end product design for a health-tech mobile app — from user research and journey mapping through to high-fidelity prototypes and a full Figma component library."
+        data-bg="work-bg-4">
         <div class="work-bg work-bg-4">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 400 300">
-            <line x1="0" y1="0" x2="400" y2="300" stroke="#c8a96e" stroke-width="0.5" opacity="0.2"/>
-            <line x1="400" y1="0" x2="0" y2="300" stroke="#c8a96e" stroke-width="0.5" opacity="0.2"/>
-            <line x1="0" y1="150" x2="400" y2="150" stroke="#c8a96e" stroke-width="0.5" opacity="0.15"/>
-            <circle cx="200" cy="150" r="40" fill="#c8a96e" opacity="0.07"/>
+          <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%">
+            <line x1="0" y1="0" x2="400" y2="300" stroke="#e02060" stroke-width="0.5" opacity="0.2"/>
+            <line x1="400" y1="0" x2="0" y2="300" stroke="#e02060" stroke-width="0.5" opacity="0.2"/>
+            <line x1="0" y1="150" x2="400" y2="150" stroke="#e02060" stroke-width="0.5" opacity="0.15"/>
+            <circle cx="200" cy="150" r="40" fill="#e02060" opacity="0.05"/>
           </svg>
         </div>
         <div class="work-item-inner">
@@ -115,14 +131,18 @@
         </div>
       </div>
 
-      <div class="work-item" data-num="05">
+      <div class="work-item" data-num="05"
+        data-title="Photography"
+        data-tag="Art Direction — 2023"
+        data-desc="Art direction and photography for a luxury fashion editorial — conceptualising the narrative, directing talent on set, and post-processing for both digital and print publication."
+        data-bg="work-bg-5">
         <div class="work-bg work-bg-5">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 400 300">
-            <rect x="40" y="40" width="60" height="60" fill="#8fb3a0" opacity="0.1"/>
-            <rect x="170" y="120" width="60" height="60" fill="#8fb3a0" opacity="0.1"/>
-            <rect x="300" y="200" width="60" height="60" fill="#8fb3a0" opacity="0.1"/>
-            <rect x="300" y="40" width="60" height="60" fill="#8fb3a0" opacity="0.06"/>
-            <rect x="40" y="200" width="60" height="60" fill="#8fb3a0" opacity="0.06"/>
+          <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%">
+            <rect x="40" y="40" width="60" height="60" fill="#5a18cc" opacity="0.08"/>
+            <rect x="170" y="120" width="60" height="60" fill="#5a18cc" opacity="0.08"/>
+            <rect x="300" y="200" width="60" height="60" fill="#5a18cc" opacity="0.08"/>
+            <rect x="300" y="40" width="60" height="60" fill="#0099cc" opacity="0.05"/>
+            <rect x="40" y="200" width="60" height="60" fill="#0099cc" opacity="0.05"/>
           </svg>
         </div>
         <div class="work-item-inner">
@@ -131,16 +151,39 @@
         </div>
       </div>
 
-      <div class="work-item" data-num="06">
+      <div class="work-item" data-num="06"
+        data-title="Digital Experience"
+        data-tag="Interactive — 2022"
+        data-desc="An immersive WebGL experience for a cultural institution — visitors navigate a procedurally generated 3D archive with spatial audio and real-time generative visuals."
+        data-bg="work-bg-6">
         <div class="work-bg work-bg-6">
-          <svg style="position:absolute;inset:0;width:100%;height:100%" viewBox="0 0 400 300">
-            <path d="M 0 150 Q 100 50 200 150 Q 300 250 400 150" fill="none" stroke="#c4614a" stroke-width="0.5" opacity="0.4"/>
-            <path d="M 0 150 Q 100 80 200 150 Q 300 220 400 150" fill="none" stroke="#c4614a" stroke-width="0.5" opacity="0.2"/>
+          <svg viewBox="0 0 400 300" style="position:absolute;inset:0;width:100%;height:100%">
+            <path d="M 0 150 Q 100 50 200 150 Q 300 250 400 150" fill="none" stroke="#0099cc" stroke-width="0.5" opacity="0.3"/>
+            <path d="M 0 150 Q 100 80 200 150 Q 300 220 400 150" fill="none" stroke="#5a18cc" stroke-width="0.5" opacity="0.2"/>
           </svg>
         </div>
         <div class="work-item-inner">
           <div class="work-title">Digital Experience</div>
           <div class="work-tags">Interactive — 2022</div>
+        </div>
+      </div>
+
+      <!-- Expanded panel — injected by JS, sits inside grid as overlay -->
+      <div class="work-expanded-panel" id="workExpandedPanel">
+        <div class="work-expanded-inner" id="workExpandedInner">
+          <div class="work-expanded-preview" id="workExpandedPreview"></div>
+          <div class="work-expanded-info">
+            <div>
+              <div class="work-expanded-num" id="workExpandedNum"></div>
+              <div class="work-expanded-title" id="workExpandedTitle"></div>
+              <div class="work-expanded-tag" id="workExpandedTag"></div>
+              <p class="work-expanded-desc" id="workExpandedDesc"></p>
+            </div>
+            <div class="work-expanded-footer">
+              <a href="#" class="work-expanded-cta">View Project</a>
+              <button class="work-expanded-close" id="workExpandedClose">[ Close ]</button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -200,7 +243,7 @@
   <section id="contact">
     <h2>Let's make something <span>great.</span></h2>
     <p>Placeholder — A brief, inviting line about getting in touch. Whether it's a project, a question, or just saying hello.</p>
-    <a href="mailto:hello@cameronadams.com" class="cta-btn">Say Hello</a>
+    <a href="/cdn-cgi/l/email-protection#066e636a6a694665676b637469686762676b752865696b" class="cta-btn">Say Hello</a>
   </section>
 
   <footer>
@@ -208,60 +251,110 @@
     <span>Designed &amp; Built by CA</span>
   </footer>
 
+
   <script>
-    // Cursor
+    // ── Cursor ──────────────────────────────────────
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
     document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
     (function animateCursor() {
-      cursor.style.left = mx + 'px';
-      cursor.style.top = my + 'px';
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
-      ring.style.left = rx + 'px';
-      ring.style.top = ry + 'px';
+      cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
       requestAnimationFrame(animateCursor);
     })();
 
-    // TYPEWRITER ANIMATION SEQUENCE
+    // ── Typewriter ───────────────────────────────────
     const chars = ['c0','c1','c2','c3','c4'];
     const typeDisplay = document.getElementById('type-display');
     const fullName = document.getElementById('full-name');
-
-    const TYPE_INTERVAL = 120;
-    const HOLD_AFTER_TYPE = 800;
-    const FADE_STAGGER = 60;
-    const FADE_DURATION = 600;
-    const NAME_DELAY = 200;
+    const TYPE_INTERVAL = 120, HOLD_AFTER_TYPE = 800, FADE_STAGGER = 60, FADE_DURATION = 600, NAME_DELAY = 200;
 
     function typeLetters() {
       let i = 0;
       const interval = setInterval(() => {
-        const el = document.getElementById(chars[i]);
-        el.classList.add('visible');
+        document.getElementById(chars[i]).classList.add('visible');
         i++;
-        if (i >= chars.length) {
-          clearInterval(interval);
-          setTimeout(fadeOut, HOLD_AFTER_TYPE);
-        }
+        if (i >= chars.length) { clearInterval(interval); setTimeout(fadeOut, HOLD_AFTER_TYPE); }
       }, TYPE_INTERVAL);
     }
-
     function fadeOut() {
-      chars.forEach((id, i) => {
-        setTimeout(() => {
-          document.getElementById(id).classList.add('fading');
-        }, i * FADE_STAGGER);
-      });
-      const totalFadeTime = chars.length * FADE_STAGGER + FADE_DURATION;
-      setTimeout(() => {
-        typeDisplay.style.display = 'none';
-        fullName.classList.add('visible');
-      }, totalFadeTime + NAME_DELAY);
+      chars.forEach((id, i) => setTimeout(() => document.getElementById(id).classList.add('fading'), i * FADE_STAGGER));
+      setTimeout(() => { typeDisplay.style.display = 'none'; fullName.classList.add('visible'); }, chars.length * FADE_STAGGER + FADE_DURATION + NAME_DELAY);
+    }
+    setTimeout(typeLetters, 600);
+
+    // ── Work card expand ─────────────────────────────
+    const grid     = document.getElementById('workGrid');
+    const panel    = document.getElementById('workExpandedPanel');
+    const inner    = document.getElementById('workExpandedInner');
+    const preview  = document.getElementById('workExpandedPreview');
+    const closeBtn = document.getElementById('workExpandedClose');
+    let activeItem = null;
+    let closing    = false;
+
+    function openCard(item) {
+      if (closing) return;
+
+      // Clone the SVG artwork into the preview pane
+      const svgEl  = item.querySelector('.work-bg svg');
+      const bgClass = item.dataset.bg;
+      preview.innerHTML = '';
+      const bgDiv = document.createElement('div');
+      bgDiv.className = `work-bg ${bgClass}`;
+      bgDiv.style.cssText = 'position:absolute;inset:0';
+      if (svgEl) {
+        const clone = svgEl.cloneNode(true);
+        clone.style.cssText = 'position:absolute;inset:0;width:100%;height:100%';
+        bgDiv.appendChild(clone);
+      }
+      preview.appendChild(bgDiv);
+
+      document.getElementById('workExpandedNum').textContent   = item.dataset.num;
+      document.getElementById('workExpandedTitle').textContent = item.dataset.title;
+      document.getElementById('workExpandedTag').textContent   = item.dataset.tag;
+      document.getElementById('workExpandedDesc').textContent  = item.dataset.desc;
+
+      if (activeItem) activeItem.classList.remove('expanded');
+      activeItem = item;
+      item.classList.add('expanded');
+      grid.classList.add('has-expanded');
+
+      panel.classList.add('active');
+      inner.style.animation = 'none';
+      void inner.offsetHeight;
+      inner.style.animation = 'expandIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards';
     }
 
-    setTimeout(typeLetters, 600);
+    function closeCard() {
+      if (!activeItem || closing) return;
+      closing = true;
+      inner.style.animation = 'expandOut 0.25s ease forwards';
+      setTimeout(() => {
+        panel.classList.remove('active');
+        grid.classList.remove('has-expanded');
+        activeItem.classList.remove('expanded');
+        activeItem = null;
+        closing = false;
+      }, 250);
+    }
+
+    grid.querySelectorAll('.work-item').forEach(item => {
+      item.addEventListener('click', e => {
+        e.stopPropagation();
+        if (item === activeItem) { closeCard(); return; }
+        openCard(item);
+      });
+    });
+
+    // Clicks inside expanded panel do nothing
+    inner.addEventListener('click', e => e.stopPropagation());
+
+    // Click anywhere outside the panel to close
+    document.addEventListener('click', () => { if (activeItem) closeCard(); });
+
+    closeBtn.addEventListener('click', e => { e.stopPropagation(); closeCard(); });
   </script>
 
 </body>
